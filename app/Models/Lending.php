@@ -31,4 +31,9 @@ class Lending extends Model
     {
         return $this->belongsTo(User::class, 'lender_id');
     }
+
+    public function request()
+    {
+        return $this->hasOne(Request::class);
+    }
 }
