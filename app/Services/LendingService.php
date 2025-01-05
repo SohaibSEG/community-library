@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Lending;
@@ -20,6 +21,7 @@ class LendingService
                 $request = new Request();
                 $request->borrower_id = $borrower->id;
                 $request->lender_id = $book->owner_id;
+                $request->no_of_days = 7;
                 $request->book_id = $book->id;
                 $request->status = Request::STATUS_PENDING;
                 $request->save();
@@ -134,6 +136,5 @@ class LendingService
                 throw new NotFoundHttpException('Lending not found.');
             }
         });
-        
     }
 }
