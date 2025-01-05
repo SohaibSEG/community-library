@@ -106,7 +106,7 @@ class LendingService
 
     public function getUserLendings(User $user)
     {
-        return Lending::where('lender_id', $user->id)->get();
+        return Lending::where('lender_id', $user->id)->with('book', 'lender', 'borrower')->get();
     }
 
     public function getUserBorrowings(User $user)
