@@ -8,7 +8,7 @@ class Request extends Model
 {
 
     const STATUS_PENDING = 'Pending';
-    const STATUS_ACCEPTED = 'Accepted';
+    const STATUS_APPROVED = 'Approved';
     const STATUS_REJECTED = 'Rejected';
 
     protected $fillable = [
@@ -33,7 +33,8 @@ class Request extends Model
         return $this->belongsTo(User::class, 'lender_id');
     }
 
-    public function lending(){
+    public function lending()
+    {
         return $this->belongsTo(Lending::class);
     }
 
@@ -44,14 +45,11 @@ class Request extends Model
 
     public function isAccepted()
     {
-        return $this->status === self::STATUS_ACCEPTED;
+        return $this->status === self::STATUS_APPROVED;
     }
 
     public function isRejected()
     {
         return $this->status === self::STATUS_REJECTED;
     }
-
-    
-
 }

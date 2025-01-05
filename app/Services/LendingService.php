@@ -43,7 +43,7 @@ class LendingService
                 ->first();
 
             if ($request) {
-                $request->status = Request::STATUS_ACCEPTED;
+                $request->status = Request::STATUS_APPROVED;
                 $request->save();
 
                 $lending = new Lending();
