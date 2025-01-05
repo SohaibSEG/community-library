@@ -124,7 +124,7 @@ class LendingService
                 ->first();
 
             if ($lending) {
-                $lending->returned_at = now();
+                $lending->return_date = now();
                 $lending->save();
 
                 $book = Book::where('id', $lending->book_id)->lockForUpdate()->first();
