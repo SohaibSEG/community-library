@@ -119,7 +119,7 @@ class LendingService
         return DB::transaction(function () use ($lending_id, $user_id) {
             $lending = Lending::where('id', $lending_id)
                 ->where('lender_id', $user_id)
-                ->whereNull('returned_at')
+                ->whereNull('return_date')
                 ->lockForUpdate()
                 ->first();
 

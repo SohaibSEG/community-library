@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Services\LendingService;
@@ -131,7 +132,7 @@ class LendingController extends Controller
      * @urlParam lendingId integer required The ID of the lending. Example: 1
      * 
      */
-    public function setLendingAsReturned(Request $request, $lendingId)
+    public function setLendingAsReturned(Request $request, int $lendingId)
     {
         $lender = Auth::user();
         $lending = $this->lendingService->setLendingAsReturned($lendingId, $lender->id);
